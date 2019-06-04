@@ -1,0 +1,14 @@
+,Id,Census_year,Geo_level,Geo_name,Metric,Total,Male,Female,Ridings
+0,2,2016,1,Newfoundland and Labrador,"Population, 2016",519716.0,...,...,7
+1,10,2016,1,Prince Edward Island,"Population, 2016",142907.0,...,...,4
+2,15,2016,1,Nova Scotia,"Population, 2016",923598.0,...,...,11
+3,27,2016,1,New Brunswick,"Population, 2016",747101.0,...,...,10
+4,38,2016,1,Quebec,"Population, 2016",8164361.0,...,...,78
+5,117,2016,1,Ontario,"Population, 2016",13448494.0,...,...,121
+6,239,2016,1,Manitoba,"Population, 2016",1278365.0,...,...,14
+7,254,2016,1,Saskatchewan,"Population, 2016",1098352.0,...,...,14
+8,269,2016,1,Alberta,"Population, 2016",4067175.0,...,...,34
+9,304,2016,1,British Columbia,"Population, 2016",4648055.0,...,...,42
+10,347,2016,1,Yukon,"Population, 2016",35874,...,...,1
+11,349,2016,1,Northwest Territories,"Population, 2016",41786,...,...,1
+12,351,2016,1,Nunavut,"Population, 2016",35944,...,...,1
