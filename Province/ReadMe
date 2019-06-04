@@ -1,0 +1,7 @@
+This directory contains the process used to retrieve and calculate the information for Canada and the Provinces.
+I also calculate the votes per seat for Canada and each privnce as well as the percentage (compared to Canada). 
+If in a province more votes are needed than Canadian average, the value will be below zero (the vote is worth 'less').
+If fewer votes are needed, the value will be above zero.
+
+I used April's calculations, but with the uid for Provinces and Canada. I also didn't go through mongo for now.
+I used pickle for storing the dataframes (that is an easy python sotrage / retrieval format). 
