@@ -52,7 +52,8 @@ def prov_bubble():
     data = {
         "geo_name": df_prov['Geo_name'].values.tolist(),
         "population": df_prov['Total'].values.tolist(),
-        "ridings": df_prov['Ridings'].values.tolist()
+        "ridings": df_prov['Ridings'].values.tolist(),
+        "val_vote":df_prov['%ValueofVote'].values.tolist()
     }
        
     return jsonify(data)
