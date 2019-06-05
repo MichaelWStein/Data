@@ -1,0 +1,157 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Value of Vote</title>
+
+  <!-- Bootstrap & css -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" /> 
+  <link rel="stylesheet" href="../static/css/style.css">
+
+   <!-- Leaflet CSS & JS -->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+   integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+   crossorigin=""/>
+   <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+   integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+   crossorigin=""></script>
+
+
+   <!-- D3 & Plotly -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <!-- Header -->
+    <div class="row" id="title-header">
+      <div class="col-md-7">
+        <h1>Value of Vote</h1>
+        <h4>Canadian Federal Elections</h4>
+      </div>
+
+      <div class="col-md-5"  id="image" >
+          <img src="../static/images/TheMapleLeaf.png" alt="TheMapleLeaf" height="100" width="100" align="left">
+      </div>
+    </div>
+
+    
+  <!--Nav-->  
+    <!-- 
+   
+    <div class=row id="select">
+
+      <div class = "col-md-4" id="Province">
+        <h4><a href="/">Province</a></h4>
+      </div>
+
+      <div class = "col-md-4" id="Districts">
+          <h4><a href="/electoral_districts" style="color:whitesmoke">Electoral Districts</a></h4>
+      </div>
+
+      <div class = "col-md-4" id="Languages">
+        <h4><a href="/languages">Languages</a></h4>
+      </div>
+
+    </div> -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <!--  <a class="navbar-brand" href="#">Navbar</a> 
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+    
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item ">
+            <a class="nav-link" href="/">Province</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/electoral_districts">Districts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/languages">Languages</a> 
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">About<span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+        <!-- <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search">
+          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+        </form> -->
+      </div>
+    </nav>
+
+    <!--Analysis by province-->
+        <!--     <div class="row" id="page">
+              <h4>Analysis by Language</h4>
+            </div> -->
+            <div class="alert alert-dismissible alert-primary">
+             
+                <strong>About</strong>
+            </div>
+
+
+  </div> 
+
+  <div class="jumbotron">
+        <h2>Provincial Data</h2>
+ 
+        <p>
+        Value of vote by Province / Territory varies between 288% (Yukon) and 87% (Alberta). Vote values for the two provinces with the largest population are close to 100% - Ontario (94%) and Quebec (99%).  
+        
+        Most of the high vote value Provinces/Territories are geographically large and thinly populated so there is little distortion in the overall representation of the population. The exception is Prince Edward Island with a vote-value of 287%.
+        
+        Conclusion: Generally the distribution of Federal Districts is fair. The higher vote value of the large territorial areas is a good compromise to provide at least some representation from them. However, there is no good reason for ‘overvaluing’ Prince Edward Island and electoral districts should be adjusted slightly to provide an increased vote value for Alberta.
+        </p>
+        <h2>Data by District</h2>
+         
+        
+        <p>
+        Vote-value per federal electoral district varies between 374% (Labrador) and 70% (Calgary-Shepard). The vote-value is high in Prince Edward Island and in geographically large electoral districts and tends to be smaller in the suburban or exurban districts. However, most of the electoral districts are valued quite close to 100%. 
+        
+        Conclusion: Overall the representation is fair, but a slight shift of Federal Electoral district distribution to improve the representation of Alberta and reduce the representation of Prince Edward Island is advisable.
+        </p>
+        <h2>Language Characteristics</h2>
+        
+        <p> 
+        Little variation between ‘value’ of the vote for languages. The only exception is the Aboriginal languages’ group, which is at 146%. This is due to the large numbers of Aboriginal Mothertongue geographically large electoral districts (i.e. in the North). This high value does not distort representation in parliament (basically 3 seats instead of 2).
+        
+        Otherwise, the variation is between 101% (English and French) and 93% (Indo-Aryan languages). Overall the non-official languages are at 97%.
+        
+        Conclusion: The current process of determining Federal Electoral Districts provides fair representation for all language groups (and, in extension, all ethnic groups).
+         </p>
+    </div>
+
+    <!-- <div class="col-md-5">
+      <div id="bubble"></div>
+    </div> -->
+
+  
+
+
+  <!-- Mapbox API key -->
+  <script type="text/javascript" src="../static/js/config.js"></script>
+ 
+  <script src="../static/js/app_ed.js"></script>
+
+</body>
+
+</html>
+
+
+ 
+
+
+
