@@ -93,7 +93,7 @@ def languages():
     app.logger.info(df_dist_languages_wcalc)
   
     #return render_template('languages.html', dist_json=json_str)
-    return render_template('languages.html')
+    return render_template('languages.html',  tables=[df_dist_languages_wcalc.to_html(classes='data')], titles=df_dist_languages_wcalc.columns.values)
         
 
 

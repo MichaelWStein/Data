@@ -73,7 +73,10 @@
 
     <div class="col-md-12"id="map">
         <div id="plot"></div>
- 
+        {% for table in tables %}
+        {{titles[loop.index]}}
+        {{ table|safe }}  
+        {% endfor %}
     </div>
 
     <!-- <div class="col-md-5">
