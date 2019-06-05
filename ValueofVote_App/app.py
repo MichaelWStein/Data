@@ -94,7 +94,12 @@ def languages():
   
     #return render_template('languages.html', dist_json=json_str)
     return render_template('languages.html',  tables=[df_dist_languages_wcalc.to_html(classes='data')], titles=df_dist_languages_wcalc.columns.values)
-        
+
+
+@app.route("/about")
+def about():
+
+    return render_template('about.html')
 
 
 if __name__ == "__main__":
