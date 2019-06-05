@@ -21,5 +21,6 @@
   d3.json(link, function(data) {
     // Creating a GeoJSON layer with the retrieved data
     L.geoJson(data).addTo(map);
+    console.log(data);
   });
   

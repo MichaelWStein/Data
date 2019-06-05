@@ -69,7 +69,7 @@ def elec_dist():
 def ed_data():
     """Return geojson for provinces"""
 
-    ed_json=os.path.join('data','test_electoral_districts.geojson')
+    ed_json=os.path.join('data','electoral_2016.json')
 
     with open(ed_json, 'r') as ej:
         ed_data = json.load(ej)
