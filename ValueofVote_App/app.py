@@ -35,7 +35,7 @@ def index():
 def prov():
     """Return geojson for provinces"""
 
-    prov_json_v2=os.path.join('data','test_prov_v2.geojson')
+    prov_json_v2=os.path.join('data','test_prov_v2.json')
 
     with open(prov_json_v2, 'r') as pj:
         prov_data = json.load(pj)
@@ -43,23 +43,23 @@ def prov():
 
     return jsonify(prov_data)
 
-@app.route("/prov_bubble")
-def prov_bubble():
-    """Return data for bubble chart for provinces"""
+# @app.route("/prov_bubble")
+# def prov_bubble():
+#     """Return data for bubble chart for provinces"""
 
-    csvfile=os.path.join('data','prov_2016.csv')
+#     csvfile=os.path.join('data','prov_2016.csv')
 
-    csvfile="data/prov_2016.csv"
-    df_prov=pd.read_csv(csvfile)
+#     csvfile="data/prov_2016.csv"
+#     df_prov=pd.read_csv(csvfile)
 
-    data = {
-        "geo_name": df_prov['Geo_name'].values.tolist(),
-        "population": df_prov['Total'].values.tolist(),
-        "ridings": df_prov['Ridings'].values.tolist(),
-        "val_vote":df_prov['%ValueofVote'].values.tolist()
-    }
+#     data = {
+#         "geo_name": df_prov['Geo_name'].values.tolist(),
+#         "population": df_prov['Total'].values.tolist(),
+#         "ridings": df_prov['Ridings'].values.tolist(),
+#         "val_vote":df_prov['%ValueofVote'].values.tolist()
+#     }
        
-    return jsonify(data)
+#     return jsonify(data)
 
 @app.route("/electoral_districts")
 def elec_dist():

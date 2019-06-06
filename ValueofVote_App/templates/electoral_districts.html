@@ -10,7 +10,8 @@
   <title>Value of Vote</title>
 
   <!-- Bootstrap & css -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" /> 
   <link rel="stylesheet" href="../static/css/style.css">
 
    <!-- Leaflet CSS & JS -->
@@ -31,7 +32,7 @@
 
 <body>
 
-  <div class="container-fluid">
+  
     <!-- Header -->
     <div class="row" id="title-header">
       <div class="col-md-7">
@@ -46,7 +47,7 @@
 
     
    <!--Nav-->
-    <div class=row id="select">
+    <!-- <div class=row id="select">
 
       <div class = "col-md-4" id="Province">
         <h4><a href="/">Province</a></h4>
@@ -60,14 +61,37 @@
         <h4><a href="/languages">Languages</a></h4>
       </div>
 
-    </div>
+    </div> -->
 
-    <!--Analysis by province-->
-    <div class="row" id="page">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Province </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/electoral_districts">Districts <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Languages</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!--Analysis by districts-->
+    <!-- <div class="row" id="page">
       <h4>Analysis by Electoral Districts</h4>
-    </div>
+    </div> -->
 
-  </div> 
+    <div class="alert alert-dismissible alert-primary">
+      <strong>Analysis by Electoral Districts</strong>
+  </div>
+
+  
 
   <div class=row id="map">
 
@@ -75,9 +99,6 @@
         <div id="map-ed"></div>
     </div>
 
-    <!-- <div class="col-md-5">
-      <div id="bubble"></div>
-    </div> -->
 
   </div>
 

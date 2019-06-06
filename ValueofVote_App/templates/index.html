@@ -10,8 +10,11 @@
   <title>Value of Vote</title>
 
   <!-- Bootstrap & css -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" /> 
   <link rel="stylesheet" href="../static/css/style.css">
+  
+
 
    <!-- Leaflet CSS & JS -->
    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
@@ -31,7 +34,7 @@
 
 <body>
 
-  <div class="container-fluid">
+  <!-- <div class="container-fluid"> -->
     <!-- Header -->
     <div class="row" id="title-header">
       <div class="col-md-7">
@@ -45,29 +48,58 @@
     </div>
 
     
-   <!--Nav-->
-    <div class=row id="select">
+   <!-- Nav -->
+    <!-- <div class=row id="select">
 
-      <div class = "col-md-4" id="Province">
-        <h4><a href="/" style="color:whitesmoke">Province</a></h4>
+      <div class = "col-md-3" id="Province">
+        <h5><a href="/" style="color:whitesmoke">Province</a></h5>
       </div>
 
-      <div class = "col-md-4" id="Districts">
-          <h4><a href="/electoral_districts">Electoral Districts</a></h4>
+      <div class = "col-md-3" id="Districts">
+          <h5><a href="/electoral_districts">Electoral Districts</a></h5>
       </div>
 
-      <div class = "col-md-4" id="Languages">
-        <h4><a href="/languages">Languages</a></h4>
+      <div class = "col-md-3" id="Languages">
+        <h5><a href="/languages">Languages</a></h5>
       </div>
 
-    </div>
+      <div class = "col-md-3" id="Languages">
+          <h5><a href="/about">About</a></h5>
+        </div>
+
+    </div> -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Province <span class="sr-only">(current)</span> </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/electoral_districts">Districts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Languages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
     <!--Analysis by province-->
-    <div class="row" id="page">
+    <!-- <div class="row" id="page">
       <h4>Analysis by Province</h4>
-    </div>
+    </div> -->
 
-  </div> 
+    <div class="alert alert-dismissible alert-primary">
+        <h5>Analysis by Province</h5>
+        <p> Canada : Total Population - 35 Mn | Seats - 338 </p>
+    </div>
+<!-- 
+  </div>  -->
 
   <div class=row id="map">
 
@@ -76,16 +108,42 @@
     </div>
 
     <div class="col-md-5">
-      <div id="bubble"></div>
+
+      <!-- <div class=row>
+          <h4>Population: 35 Mn</h4>
+          <h4>Seats: 338</h4>
+      </div> -->
+
+      <div class=row>
+        <div class="col-md-12">
+          <div id="bubble"></div>
+        </div>
+
+        <div class="col-md-12">
+          <div id="chartdiv"></div>
+        </div>
+
+      </div>
+      
+     
     </div>
 
   </div>
 
 
+   <!-- Resources -->
+  <script src="https://www.amcharts.com/lib/4/core.js"></script>
+  <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+  <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
   <!-- Mapbox API key -->
   <script type="text/javascript" src="../static/js/config.js"></script>
   <script src="../static/js/app_prov.js"></script>
 
+<!--Bootstrap-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>
