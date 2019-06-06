@@ -12,7 +12,7 @@
   <!-- Bootstrap & css -->
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" /> 
-  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
   
 
 
@@ -43,7 +43,7 @@
       </div>
 
       <div class="col-md-5"  id="image" >
-          <img src="../static/images/TheMapleLeaf.png" alt="TheMapleLeaf" height="100" width="100" align="left">
+          <img src="{{ url_for('static', filename='images/TheMapleLeaf.png') }}" alt="TheMapleLeaf" height="100" width="100" align="left">
       </div>
     </div>
 
@@ -80,7 +80,7 @@
               <a class="nav-link" href="/electoral_districts">Districts</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Languages</a>
+              <a class="nav-link" href="/languages">Languages</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/about">About</a>
@@ -137,8 +137,8 @@
   <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 
   <!-- Mapbox API key -->
-  <script type="text/javascript" src="../static/js/config.js"></script>
-  <script src="../static/js/app_prov.js"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/config.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/app_prov.js') }}"></script>
 
 <!--Bootstrap-->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
