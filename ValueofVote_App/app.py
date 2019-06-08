@@ -82,19 +82,20 @@ def ed_data():
 def languages():
     app.logger.info(f'/languages getting data from mongodb')
     db = client.analysis
-    db_dist_languages_wcalc = db.dist_languages_wcalc
-    db_prov_languages_wcalc = db.prov_languages_wcalc
-    db_seat_value_language = db.seat_value_language
+    collection = db.seat_value_language
+    analysis = collection.find()
+    contents = list()
 
-    df_dist_languages_wcalc= pd.DataFrame(list(db_dist_languages_wcalc.find()))
-    df_dist_languages_wcalc.columns = df_dist_languages_wcalc.iloc[0]
-    df_dist_languages_wcalc = df_dist_languages_wcalc.iloc[:, :-1]
-    df_dist_languages_wcalc.reindex(df_dist_languages_wcalc.index.drop(0))
-    df_dist_languages_wcalc.set_index('district',inplace=True) 
-    app.logger.info(df_dist_languages_wcalc)
-  
-    #return render_template('languages.html', dist_json=json_str)
-    return render_template('languages.html',  tables=[df_dist_languages_wcalc.to_html(classes='data')], titles=df_dist_languages_wcalc.columns.values)
+    contents = [data for data in analysis]
+
+    df = pd.DataFrame(contents)
+    df.set_index('rows',inplace=True)
+    df = df.iloc[2:]
+    df = df[['comment', 'Canada', 'id_seats', 'act_seats', 'value']]
+    df.rename(columns={'id_seats': 'seats, ideal case','act_seats':'seats, calculating by district'}, inplace=True)
+
+    app.logger.info(df.head())
+    return render_template('languages.html',  tables=[df.to_html()], titles=df.columns.values)
 
 
 @app.route("/about")

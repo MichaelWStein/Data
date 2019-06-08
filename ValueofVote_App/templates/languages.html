@@ -12,7 +12,7 @@
   <!-- Bootstrap & css -->
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" /> 
-  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 
    <!-- Leaflet CSS & JS -->
    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
@@ -109,16 +109,22 @@
     <div class="col-md-12"id="map">
         <div id="plot"></div>
         <table class="table table-hover">
-          <tr></tr>
+
+
+
             <tbody>
+            {% for table in tables %}
               <tr><td>
-             {% for table in tables %}
-               {{titles[loop.index]}}
-             {{ table|safe }}  
-             {% endfor %}
-            </td></tr>
+                {{ table|safe }}
+              </td></tr>
+            {% endfor %}
+
+
+
+
           </tbody>
       </table>
+
     </div>
 
     <!-- <div class="col-md-5">
