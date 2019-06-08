@@ -28,20 +28,20 @@ function build_prov_map() {
   
    //Fill colors
    function getColor(d) {
-    return d = 24 ? '#800026' :
-          d = '35'  ? '#BD0026' :
-          d = '10'  ? '#E31A1C' :
-          d = '11'  ? '#FC4E2A' :
-          d = '12'  ? '#FD8D3C' :
-          d = '13'  ? '#FEB24C' :
-          d = '48'  ? '#FED976' :
-          d = '46'  ? '#2ca25f' :
-          d = '47'  ? '#43a2ca' :
-          d = '59'  ? '#bcbddc' :
-          d = '60'  ? '#edf8b1' :
-          d = '61'  ? '#fa9fb5' :
-          d = '62'  ? '#a6cee3' :
-                      '#FFEDA0';
+    return d == '24' ? '#800026' :
+           d == '35'  ? '#BD0026':
+           d == '10'  ? '#E31A1C':
+           d == '11'  ? '#FC4E2A':
+           d == '12'  ? '#FD8D3C':
+           d == '13'  ? '#FEB24C':
+           d == '48'  ? '#FED976':
+           d == '46'  ? '#2ca25f':
+           d == '47'  ? '#43a2ca':
+           d == '59'  ? '#bcbddc':
+           d == '60'  ? '#edf8b1':
+           d == '61'  ? '#fa9fb5':
+           d == '62'  ? '#a6cee3':
+                        '#FFEDA0';
   }
 
 
@@ -106,12 +106,39 @@ function highlightFeature(e) {
         mouseout: resetHighlight,
         click: zoomToFeature
     });
-    layer.bindTooltip("<h6>" + feature.properties.FEDNAME + "</h6>");
+    layer.bindTooltip("<h6>" + feature.properties.FEDNAME + 
+                      "</h6><hr><h6>Province "+ feature.properties.PRNAME +"</h6>");
   }
   elec_dist = L.geoJson(data.features, {
     style: style,
     onEachFeature: onEachFeature
   }).addTo(map);
+  
+
+  //Legend
+  var legend = L.control({position: 'topright'});
+
+  // legend.onAdd = function (map) {
+
+  //   var div = L.DomUtil.create('div', 'info legend'),
+  //       grades = [.75,1,1.25,1.5,1.75,2,2.5],
+  //       labels = ["<75%","75-100%","100-125%","125-150%","150-175%","175-200%","200%+"];
+
+  //   // loop through our density intervals and generate a label with a colored square for each interval
+  //   for (var i = 0; i < grades.length; i++) {
+  //       div.innerHTML +=
+  //           '<i style="background:' + getColor(grades[i]) + '"></i> ' +
+  //           grades[i]*100 + (grades[i + 1]*100 ? '&ndash;' + grades[i + 1]*100  + '%<br>' : '%+');
+  //       console.log(getColor(grades[i]));
+  //   }
+
+  //   return div;
+  // };
+
+  L.control.layers(baseMaps,null, {
+    collapsed: false
+  }).addTo(map);
+
 
   });
 
